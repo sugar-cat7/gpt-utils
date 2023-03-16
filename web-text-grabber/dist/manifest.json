@@ -1,8 +1,16 @@
 {
     "manifest_version": 3,
-    "name": "HTML Text Extractor",
-    "version": "1.0",
-    "description": "Extracts text content from web pages, including Markdown and LaTeX.",
+    "name": "WebTextGrabber",
+    "version": "1.0.0",
+    "description": "Extract and convert text from web pages, including Markdown and LaTeX formats.",
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "permissions": [
+      "activeTab"
+    ],
     "action": {
       "default_popup": "popup.html",
       "default_icon": {
@@ -11,19 +19,13 @@
         "128": "icon128.png"
       }
     },
-    "permissions": ["activeTab"],
+    "background": {
+      "service_worker": "background.js"
+    },
     "content_scripts": [
       {
-        "matches": ["https://*/*", "http://*/*"],
+        "matches": ["<all_urls>"],
         "js": ["content.js"]
       }
-    ],
-    "background": {
-      "scripts": ["popup.js"]
-    },
-    "icons": {
-      "16": "icon16.png",
-      "48": "icon48.png",
-      "128": "icon128.png"
-    }
+    ]
   }
