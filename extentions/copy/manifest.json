@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Math Formula Copy",
+  "version": "1.0",
+  "description": "Copy math formulas in LaTeX format from web pages with MathJax or KaTeX",
+  "permissions": ["activeTab", "clipboardWrite", "contextMenus"],
+  "action": {
+    "default_icon": {
+      "48": "icon48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
